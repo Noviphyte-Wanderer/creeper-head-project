@@ -1,5 +1,6 @@
 const buttonSection = document.getElementById('button-section');
 const rootSection = document.querySelector(":root");
+const stateName = document.getElementById('state');
 
 let stateIndex = 0;
 
@@ -212,6 +213,7 @@ const states = [
 
     }
 ];
+stateName.textContent = states[stateIndex].state;
 
 const renderButtons = () => {
     buttonSection.innerHTML = "";
@@ -225,14 +227,13 @@ const renderButtons = () => {
 }
 
 const changeState = (action) => {
-    console.log("CLICKED!", stateIndex, action);
     if (action === "Next"){
-        console.log("Next");
         stateIndex = stateIndex >= buttonLabels.length - 1 ? buttonLabels.length - 1 : stateIndex + 1;
         console.log(stateIndex);
     } else {
         stateIndex = (stateIndex <= 0) ? 0 : stateIndex - 1;
     }
+    stateName.textContent = states[stateIndex].state;
     rootSection.style.setProperty("--sky-gradient", states[stateIndex].skyGradient);
     rootSection.style.setProperty("--sun-gradient", states[stateIndex].sunGradient);
     rootSection.style.setProperty("--head-shade", states[stateIndex].creeperHeadShade);
