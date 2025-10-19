@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 :root{
-    --head-shade: linear-gradient(#0c0 0%, #090 5%,#090 95%, #060 100%);
+    --head-shade: linear-gradient(#0c0 0%, #080 5%,#080 95%, #060 100%);
     --head-lighting: linear-gradient(90deg, 
         #00ff0099,
         #00990000 5%,
@@ -14,8 +14,11 @@
         #00ff0099 100%
     );
     --head-lighting-mask: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 50%,  rgba(0, 0, 0, 0));
-    --sky-gradient: linear-gradient(#81d7ff, #55adff);
-    --sun-gradient: radial-gradient(closest-corner circle at 50% -50%,#ffffffff, #ffffccca 25%, #feffada7 50%, #f4ff8f31 100%);
+    --head-sunlight: 0px -2px 3px 3px #0c0;
+    --sky-gradient: linear-gradient( #559dff, #81d7ff);
+    --sun-gradient: radial-gradient(closest-corner circle at 50% -50%,#ffffffff, #ffffeeda 15%, #ffffccba 20%, #feffad87 50%, #f4ff8f31 100%);
+    --ocean-gradient: linear-gradient(#0000ffff, #000099ff 40%);
+    --neck-gradient: linear-gradient(#030, #050 20%);
 }
 .sky{
     background: var(--sky-gradient);
@@ -28,7 +31,7 @@
     background: var(--sun-gradient);
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
 }
 
 .head{
@@ -50,7 +53,7 @@
     background: var(--head-lighting);
     mask-image: var(--head-lighting-mask);
     border-radius: 7.5%;
-    
+    box-shadow: 0 -1px 0 2px green;
 }
 .eyes{
     position: absolute;
@@ -103,25 +106,26 @@
     right: 0;
     margin: auto;
     z-index: 1;
-    background: linear-gradient(#030, #050 20%);
+    background: var(--neck-gradient);
 }
 .ocean{
     position: absolute;
     width: 100%;
     height: 50px;
     bottom: 0;
-    background: linear-gradient(#0000ffff, #000099ff 40%);
+    background: var(--ocean-gradient);
 }
 #button-section{
-    position: absolute;
-    width: 150px;
+    position: relative;
+    width: 300px;
     height: 50px;
-    bottom: 50px;
-    left: calc(50% - 75px);
+    top: calc(100% - 100px);
+    left: calc(50% - 150px);
     z-index: 5;
 }
 button{
     background-color: white;
+    position: absolute;
     border: 1px solid black;
     padding: 20px 25px;
     width: 150px;
