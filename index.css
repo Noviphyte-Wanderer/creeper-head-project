@@ -20,6 +20,21 @@
     --ocean-gradient: linear-gradient(#0000ffff, #000099ff 40%);
     --neck-gradient: linear-gradient(#030, #050 20%);
 }
+
+#state{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    color: white;
+    background-color: black;
+    border: 5px double white;
+    font-family: "Roboto Mono", system-ui;
+    text-transform: capitalize;
+    z-index: 5;
+    padding: 10px;
+    font-size: 4rem;
+}
+
 .sky{
     background: var(--sky-gradient);
     width: 100%;
@@ -129,5 +144,6 @@ button{
     border: 1px solid black;
     padding: 20px 25px;
     width: 150px;
+    z-index: 5;
     font-size: 1rem;
 }
